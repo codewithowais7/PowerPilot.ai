@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: powerpilot-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./database:/app/database
+      - ./ml/models:/app/ml/models
+      - ./data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:///./database/energy.db
+    command: uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: powerpilot-frontend
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
+    environment:
+      - POWERPILOT_API=http://backend:8000/api/v1
+    command: >
+      streamlit run frontend/app.py
+        --server.port=8501
+        --server.address=0.0.0.0
+        --server.headless=true
+        --theme.base=dark

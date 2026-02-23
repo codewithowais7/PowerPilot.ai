@@ -1,0 +1,218 @@
+/* PowerPilot AI — Main Stylesheet */
+/* Futuristic Web3 / Tesla Dashboard style */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --primary: #00d4ff;
+  --primary-glow: rgba(0, 212, 255, 0.4);
+  --secondary: #7b2ff7;
+  --secondary-glow: rgba(123, 47, 247, 0.4);
+  --accent: #00ff88;
+  --accent-glow: rgba(0, 255, 136, 0.4);
+  --danger: #ff3b5b;
+  --warning: #ffb800;
+  --bg-deep: #030b1a;
+  --bg-card: rgba(6, 18, 42, 0.85);
+  --bg-card-hover: rgba(10, 28, 62, 0.95);
+  --border-glow: rgba(0, 212, 255, 0.25);
+  --text-primary: #e8f4fd;
+  --text-secondary: rgba(232, 244, 253, 0.6);
+  --text-muted: rgba(232, 244, 253, 0.35);
+}
+
+/* ─── App Container ─────────────────────────────────────────────────── */
+.stApp {
+  background: var(--bg-deep) !important;
+  font-family: 'Exo 2', sans-serif !important;
+  color: var(--text-primary) !important;
+}
+
+/* ─── Main title H1 ─────────────────────────────────────────────────── */
+h1, .stTitle {
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 800 !important;
+  color: var(--primary) !important;
+  text-shadow: 0 0 30px var(--primary-glow), 0 0 60px rgba(0, 212, 255, 0.2) !important;
+  letter-spacing: 3px !important;
+}
+
+h2, h3 {
+  font-family: 'Orbitron', monospace !important;
+  color: var(--primary) !important;
+  text-shadow: 0 0 15px var(--primary-glow) !important;
+  letter-spacing: 2px !important;
+}
+
+/* ─── Metrics / KPI Cards ───────────────────────────────────────────── */
+[data-testid="metric-container"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-glow) !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow:
+    0 0 30px rgba(0, 212, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.3s ease !important;
+}
+
+[data-testid="metric-container"]:hover {
+  background: var(--bg-card-hover) !important;
+  border-color: rgba(0, 212, 255, 0.5) !important;
+  box-shadow:
+    0 0 50px rgba(0, 212, 255, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  transform: translateY(-3px) !important;
+}
+
+[data-testid="metric-container"] [data-testid="stMetricLabel"] {
+  color: var(--text-secondary) !important;
+  font-family: 'Exo 2', sans-serif !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+}
+
+[data-testid="metric-container"] [data-testid="stMetricValue"] {
+  color: var(--primary) !important;
+  font-family: 'Orbitron', monospace !important;
+  font-size: 1.6rem !important;
+  text-shadow: 0 0 20px var(--primary-glow) !important;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────── */
+.stButton > button {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(123, 47, 247, 0.15)) !important;
+  border: 1px solid rgba(0, 212, 255, 0.4) !important;
+  border-radius: 10px !important;
+  color: var(--primary) !important;
+  font-family: 'Orbitron', monospace !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  padding: 12px 28px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.1) !important;
+  cursor: pointer !important;
+}
+
+.stButton > button:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(123, 47, 247, 0.3)) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 30px var(--primary-glow), 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  color: #fff !important;
+}
+
+/* ─── Sidebar ───────────────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+  background: rgba(3, 11, 26, 0.95) !important;
+  border-right: 1px solid var(--border-glow) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+[data-testid="stSidebar"] .stSelectbox label,
+[data-testid="stSidebar"] .stRadio label,
+[data-testid="stSidebar"] p {
+  color: var(--text-secondary) !important;
+  font-family: 'Exo 2', sans-serif !important;
+}
+
+/* ─── Selectbox / Multiselect ───────────────────────────────────────── */
+[data-testid="stSelectbox"] > div > div {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-glow) !important;
+  border-radius: 10px !important;
+  color: var(--text-primary) !important;
+}
+
+/* ─── File uploader ─────────────────────────────────────────────────── */
+[data-testid="stFileUploader"] {
+  background: var(--bg-card) !important;
+  border: 1px dashed rgba(0, 212, 255, 0.3) !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+}
+
+/* ─── DataFrames ────────────────────────────────────────────────────── */
+[data-testid="stDataFrame"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-glow) !important;
+  border-radius: 12px !important;
+}
+
+/* ─── Success / Error / Warning ─────────────────────────────────────── */
+[data-testid="stSuccess"] {
+  background: rgba(0, 255, 136, 0.08) !important;
+  border: 1px solid rgba(0, 255, 136, 0.3) !important;
+  border-radius: 10px !important;
+}
+
+[data-testid="stError"] {
+  background: rgba(255, 59, 91, 0.08) !important;
+  border: 1px solid rgba(255, 59, 91, 0.3) !important;
+  border-radius: 10px !important;
+}
+
+[data-testid="stWarning"] {
+  background: rgba(255, 184, 0, 0.08) !important;
+  border: 1px solid rgba(255, 184, 0, 0.3) !important;
+  border-radius: 10px !important;
+}
+
+/* ─── Plotly chart containers ───────────────────────────────────────── */
+.js-plotly-plot {
+  border-radius: 16px !important;
+}
+
+/* ─── Divider ───────────────────────────────────────────────────────── */
+hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent) !important;
+  margin: 24px 0 !important;
+}
+
+/* ─── Spinner ───────────────────────────────────────────────────────── */
+.stSpinner > div {
+  border-color: var(--primary) transparent transparent transparent !important;
+}
+
+/* ─── Tabs ──────────────────────────────────────────────────────────── */
+[data-testid="stTab"] {
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+  font-family: 'Orbitron', monospace !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 2px !important;
+}
+
+[data-testid="stTab"][aria-selected="true"] {
+  color: var(--primary) !important;
+  border-bottom: 2px solid var(--primary) !important;
+}
+
+/* ─── Custom Glassmorphism Card ─────────────────────────────────────── */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 40px rgba(0, 212, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  margin-bottom: 20px;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #030b1a; }
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.6);
+}

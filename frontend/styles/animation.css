@@ -1,0 +1,164 @@
+/* PowerPilot AI — Animation & Keyframes */
+
+/* Neon pulse animation */
+@keyframes neon-pulse {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px rgba(0, 212, 255, 0.8),
+            0 0 20px rgba(0, 212, 255, 0.5),
+            0 0 40px rgba(0, 212, 255, 0.3);
+    }
+
+    50% {
+        text-shadow:
+            0 0 20px rgba(0, 212, 255, 1),
+            0 0 40px rgba(0, 212, 255, 0.8),
+            0 0 80px rgba(0, 212, 255, 0.5);
+    }
+}
+
+/* Border scanning animation */
+@keyframes border-scan {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Float animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* Glow pulse for cards */
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.25), 0 0 80px rgba(0, 212, 255, 0.1);
+    }
+}
+
+/* Data stream animation */
+@keyframes data-stream {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scan line */
+@keyframes scan-line {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 200%;
+    }
+}
+
+/* Apply animations */
+.neon-title {
+    animation: neon-pulse 3s ease-in-out infinite;
+}
+
+.float-card {
+    animation: float 4s ease-in-out infinite;
+}
+
+.glow-card {
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.fade-in {
+    animation: data-stream 0.5s ease-out forwards;
+}
+
+/* Animated gradient border */
+.gradient-border {
+    background: linear-gradient(60deg,
+            #00d4ff, #7b2ff7, #00ff88, #00d4ff);
+    background-size: 300% 300%;
+    animation: border-scan 4s ease infinite;
+    padding: 2px;
+    border-radius: 18px;
+}
+
+/* Metric value counter animation */
+@keyframes count-up {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.metric-value {
+    animation: count-up 0.6s ease-out forwards;
+}
+
+/* Status indicator blinking */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ff88;
+    animation: blink 2s ease-in-out infinite;
+    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+}
+
+.status-dot.warning {
+    background: #ffb800;
+    box-shadow: 0 0 10px rgba(255, 184, 0, 0.8);
+}
+
+.status-dot.danger {
+    background: #ff3b5b;
+    box-shadow: 0 0 10px rgba(255, 59, 91, 0.8);
+    animation-duration: 0.5s;
+}

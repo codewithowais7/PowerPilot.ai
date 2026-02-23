@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: transparent;
+            overflow: hidden;
+            width: 100%;
+            height: 60px;
+        }
+
+        .animated-bg {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridMove 8s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 40px 40px;
+            }
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                    rgba(0, 212, 255, 0.08) 0%,
+                    rgba(123, 47, 247, 0.06) 50%,
+                    rgba(0, 255, 136, 0.08) 100%);
+            animation: gradientShift 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Scanlines effect */
+        .scan-lines {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.6), transparent);
+            animation: scanDown 3s linear infinite;
+        }
+
+        @keyframes scanDown {
+            0% {
+                top: -5%;
+            }
+
+            100% {
+                top: 105%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="grid-lines"></div>
+        <div class="gradient-overlay"></div>
+        <div class="scan-lines"></div>
+    </div>
+</body>
+
+</html>
