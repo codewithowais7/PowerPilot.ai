@@ -205,3 +205,63 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+# PowerPilot AI specific
+ml/models/*.pkl
+database/*.db
+# PowerPilot AI additional ignores
+*.sqlite3
+*.log
+.DS_Store
+# PowerPilot AI — critical ignores
+
+# Environment variables (VERY IMPORTANT for security)
+.env.*
+!.env.example
+
+# Virtual environments (extra safety)
+backend/venv/
+frontend/venv/
+
+# ML artifacts
+ml/artifacts/
+ml/checkpoints/
+ml/runs/
+
+# Temporary and cache files
+*.tmp
+*.cache
+*.bak
+
+# Streamlit cache
+.streamlit/
+
+# OS files
+Thumbs.db
+
+# VS Code workspace settings (optional)
+.vscode/settings.json
+.vscode/launch.json
+
+# Docker
+docker-compose.override.yml
+
+# Test outputs
+test_output/
+reports/
+
+# Runtime generated files
+logs/
+data/raw/
+data/processed/
+data/interim/
+
+# Model training outputs
+*.h5
+*.pt
+*.onnx
+
+# API keys and secrets
+secrets/
+credentials/
+*.key
+*.pem
