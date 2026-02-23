@@ -1,3 +1,4 @@
+
 # ⚡ PowerPilot AI
 
 > **Smart Energy Intelligence & Optimization Platform**
@@ -140,3 +141,7 @@ docker-compose up --build
 
 - Backend: http://localhost:8000
 - Frontend: http://localhost:8501
+=======
+# PowerPilot.ai
+AI-powered Smart Energy Intelligence and Optimization Platform using FastAPI, Streamlit, and Machine Learning
+>>>>>>> 76f27825df27696b54fb06353d19a2f6c220868c
