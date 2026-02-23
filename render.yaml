@@ -1,0 +1,30 @@
+services:
+  # ─── FastAPI Backend ─────────────────────────────────────────────────────────
+  - type: web
+    name: powerpilot-backend
+    runtime: python
+    rootDir: .
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./database/energy.db
+      - key: PYTHONPATH
+        value: .
+    healthCheckPath: /health
+
+  # ─── Streamlit Frontend ──────────────────────────────────────────────────────
+  - type: web
+    name: powerpilot-frontend
+    runtime: python
+    rootDir: .
+    buildCommand: pip install -r frontend/requirements.txt
+    startCommand: >
+      python -m streamlit run frontend/app.py
+        --server.port 10000
+        --server.address 0.0.0.0
+        --server.headless true
+        --theme.base dark
+    envVars:
+      - key: PYTHONPATH
+        value: .
